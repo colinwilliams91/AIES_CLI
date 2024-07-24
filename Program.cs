@@ -21,7 +21,13 @@ if (args.Length < 1)
     return;
 }
 
-var assistantCreationOptions = new AssistantCreationOptions();
+var assistantCreationOptions = new AssistantCreationOptions()
+{
+    Name = "Ebook Summarizer",
+    Instructions = "Answer questions from the user about the provided file. " +
+    "For PDF files, immediately use PyPDF2 to extract the text contents and answer quesions based on that.",
+    Tools = { new CodeInterpreterToolDefinition() }
+};
 
 WriteLine("Hello, World!");
 
